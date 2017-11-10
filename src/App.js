@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { fetchImages } from './actions/imgur';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Search from './components/Search';
+
 import './App.css';
 
 class App extends Component {
@@ -10,7 +13,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Photo Viewing App</h1>
+        <Header />
+        <Search />
+        <Footer />
       </div>
     );
   }
