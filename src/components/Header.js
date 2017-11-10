@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Navbar } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
+import Search from './Search';
 
 export default class Header extends Component {
   render() {
@@ -8,6 +9,9 @@ export default class Header extends Component {
         <Navbar.Brand>
           Photo Viewing App
         </Navbar.Brand>
+        <Nav pullRight>
+          <Search />
+        </Nav>
       </Navbar>
     )
   }

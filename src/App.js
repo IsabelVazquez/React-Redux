@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Search from './components/Search';
+import Image from './components/Image';
 
 import './App.css';
 
@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Search />
+        <Image />
         <Footer />
       </div>
     );
