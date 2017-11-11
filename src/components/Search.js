@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
+import { fetchImages } from '../actions/imgur'
 
 export default class Search extends Component {
+  handleSelect = (eventKey) => {
+    fetchImages(eventKey);
+  }
+
   render() {
     return(
-      <DropdownButton title="Categories" id="bg-nested-dropdown">
-        <MenuItem eventKey="The More You Know">The More You Know</MenuItem>
+      <DropdownButton title="Categories" id="bg-nested-dropdown" onSelect={ this.handleSelect }>
+        <MenuItem eventKey="Viral">Viral</MenuItem>
+        <MenuItem eventKey="The_More_You_Know">The More You Know</MenuItem>
         <MenuItem eventKey="Science and Tech">Science and Tech</MenuItem>
         <MenuItem eventKey="Gaming">Gaming</MenuItem>
         <MenuItem eventKey="Eat What You Want">Eat What You Want</MenuItem>

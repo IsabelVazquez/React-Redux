@@ -7,7 +7,12 @@ export default class ImageList extends Component {
     return (
        <Grid class="post-gallery">
           <Row>
-            <Image />
+            <Col md={2}><Image /></Col>
+            <Col md={2}><Image /></Col>
+            <Col md={2}><Image /></Col>
+            <Col md={2}><Image /></Col>
+            <Col md={2}><Image /></Col>
+            <Col md={2}><Image /></Col>
           </Row>
        </Grid>
     )
