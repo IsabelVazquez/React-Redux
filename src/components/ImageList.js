@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
-import Image from './Image';
-import { Grid, Row, Col } from 'react-bootstrap';
+import React from 'react';
+import { Grid, Row } from 'react-bootstrap';
 
-export default class ImageList extends Component {
-  render () {
-    return (
-       <Grid class="post-gallery">
-          <Row>
-            <Col md={2}><Image /></Col>
-          </Row>
-       </Grid>
-    )
-  }
-}
+const ImageList = ({children}) => (
+  <Grid>
+    <Row>
+      {children}
+    </Row>
+  </Grid>
+)
+
+export default ImageList;

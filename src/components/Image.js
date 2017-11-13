@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Col } from 'react-bootstrap';
 
-export default class Image extends Component {
-    render () {
-      return (
-        <div class="post">
-          <a class="image-list-link" href="http://www.imgur.com" target="_blank" rel="noopener noreferrer">
-            <img alt="" src={process.env.PUBLIC_URL + '/test.jpg'} />
+const Image = (props) => {
+    return (
+      <Col md={2}>
+        <div class="post" id={props.image.id}>
+          <a class="image-list-link" id={props.image.id} title={props.image.title} href={props.image.link} target="_blank" rel="noopener noreferrer">
+            <img alt="" src={'http://imgur.com/' + props.image.cover + 't' + '.jpg'} />
           </a>
         </div>
-      )
-    }
+      </Col>
+    )
 }
+export default Image;

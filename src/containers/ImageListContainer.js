@@ -2,25 +2,27 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchImages } from '../actions/imgur';
+import Image from '../components/Image';
 import ImageList from '../components/ImageList';
 
 class ImageListContainer extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      images: [],
-    }
+  renderList() {
+    const children = this.props.images.map((image) => (
+      <Image image={image} />
+    ));
+    return (
+      <ImageList>
+        {children}
+      </ImageList>
+    );
   }
 
-  // componentDidMount() {
-  //   fetch("/API_URL")
-  //     .then(res => res.json())
-  //     .then(images => this.setState({ images }))
-  // }
-
   render() {
-    return <ImageList images={this.state.images} />;
+    return (
+      <div>
+        {this.renderList()}
+      </div>
+    )
   }
 }
 

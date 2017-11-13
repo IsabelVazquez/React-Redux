@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-// import { tbdReducer } from './tbd';
+import imageReducer from './imageReducer';
 
 export default combineReducers({
- // images: tbdReducer,
+ images: imageReducer,
 });
