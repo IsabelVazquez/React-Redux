@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
-import { fetchImages } from '../actions/imgur'
+import { fetchImages } from '../actions/imgur';
 
 export default class Search extends Component {
   handleSelect = (eventKey) => {

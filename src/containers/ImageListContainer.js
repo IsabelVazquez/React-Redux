@@ -7,13 +7,13 @@ import ImageList from '../components/ImageList';
 
 class ImageListContainer extends Component {
   renderList() {
-    const children = this.props.images.map((image) => (
-      <Image image={image} />
-    ));
     return (
-      <ImageList>
-        {children}
-      </ImageList>
+      <div>Hello</div>
+      // <ImageList>
+      //   {this.props.images.map((image) => (
+      //     <Image image={image} />
+      //   ))}
+      // </ImageList>
     );
   }
 
@@ -28,9 +28,12 @@ class ImageListContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    //must be in store from reducers
     images: state.images
   };
 }
 
-export default connect(mapStateToProps)(ImageListContainer);
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({fetchImages: fetchImages}, dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(ImageListContainer);

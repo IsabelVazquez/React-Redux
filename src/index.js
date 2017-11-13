@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+
 import allReducers from './reducers/root';
+import { fetchImages } from './actions/imgur';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 //allReducers - To Be Imported and inserted into createStore
-const store = createStore(allReducers);
+const store = createStore(allReducers, applyMiddleware(thunk));
+
+store.dispatch(fetchImages("viral"));
 
 ReactDOM.render(
   <Provider store={store}>
