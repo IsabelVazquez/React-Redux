@@ -7,14 +7,17 @@ import ImageList from '../components/ImageList';
 
 class ImageListContainer extends Component {
   renderList() {
-    return (
-      <div>Hello</div>
-      // <ImageList>
-      //   {this.props.images.map((image) => (
-      //     <Image image={image} />
-      //   ))}
-      // </ImageList>
-    );
+    // must wrap .map block with conditional statement
+    if (this.props.images.images) {
+      const children = this.props.images.images.map((image) => (
+        <Image image={image} />
+      ));
+      return (
+        <ImageList>
+          {children}
+        </ImageList>
+      );
+    }
   }
 
   render() {

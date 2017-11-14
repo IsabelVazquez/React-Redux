@@ -10,10 +10,9 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-//allReducers - To Be Imported and inserted into createStore
 const store = createStore(allReducers, applyMiddleware(thunk));
 
-store.dispatch(fetchImages("viral"));
+store.dispatch(fetchImages("Gaming"));
 
 ReactDOM.render(
   <Provider store={store}>

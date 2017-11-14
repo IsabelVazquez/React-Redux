@@ -11,7 +11,10 @@ export function fetchImages(section) {
     .then((response) => response.json())
     .then(json => dispatch({
       type: 'FETCH_IMAGES',
-      payload: json.data.images,
+      payload: json.data.items,
     }))
+    .catch(error => {
+      throw(error);
+    });
   }
 }
