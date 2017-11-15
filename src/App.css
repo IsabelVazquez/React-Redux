@@ -8,6 +8,17 @@
   line-height: 0;
 }
 
+div.post:hover button {
+  display: block;
+}
+
+div.post button {
+  top: 0;
+  right: 0;
+  position: absolute;
+  display: none;
+}
+
 .navbar-fixed-bottom {
   /*position: absolute;*/
   bottom: 0;
