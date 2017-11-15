@@ -14,7 +14,7 @@ class ImageListContainer extends Component {
       ));
       return (
         <div>
-        <h1>{this.props.images.images.name}</h1>
+        <h1>{this.props.images.images.display_name}</h1>
         <ImageList>
           {children}
         </ImageList>
@@ -35,7 +35,6 @@ class ImageListContainer extends Component {
 function mapStateToProps(state) {
   return {
     images: state.images,
-    category: state.category,
   };
 }
 

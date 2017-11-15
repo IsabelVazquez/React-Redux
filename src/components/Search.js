@@ -11,7 +11,7 @@ class Search extends Component {
 
   render() {
     return(
-      <DropdownButton title="Categories" id="bg-nested-dropdown" onSelect={ this.handleSelect }>
+      <DropdownButton title={this.props.images.images.display_name} id="bg-nested-dropdown" onSelect={ this.handleSelect }>
         <MenuItem eventKey="Viral">Viral</MenuItem>
         <MenuItem eventKey="The_More_You_Know">The More You Know</MenuItem>
         <MenuItem eventKey="Science and Tech">Science and Tech</MenuItem>
@@ -32,8 +32,14 @@ class Search extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    images: state.images,
+  };
+}
+
 function matchDispatchToProps(dispatch){
     return bindActionCreators({fetchImages: fetchImages}, dispatch);
 }
 
-export default connect(null, matchDispatchToProps)(Search);
+export default connect(mapStateToProps, matchDispatchToProps)(Search);
