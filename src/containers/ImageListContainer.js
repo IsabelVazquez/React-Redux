@@ -8,14 +8,17 @@ import ImageList from '../components/ImageList';
 class ImageListContainer extends Component {
   renderList() {
     // must wrap .map block with conditional statement
-    if (this.props.images.images) {
-      const children = this.props.images.images.map((image) => (
-        <Image image={image} />
+    if (this.props.images.images.items) {
+      const children = this.props.images.images.items.map((image) => (
+        <Image key={image.id} image={image} />
       ));
       return (
+        <div>
+        <h1>{this.props.images.images.name}</h1>
         <ImageList>
           {children}
         </ImageList>
+        </div>
       );
     }
   }
@@ -31,7 +34,8 @@ class ImageListContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    images: state.images
+    images: state.images,
+    category: state.category,
   };
 }
 

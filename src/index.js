@@ -12,7 +12,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 const store = createStore(allReducers, applyMiddleware(thunk));
 
-store.dispatch(fetchImages("Gaming"));
+store.dispatch(fetchImages("Viral"));
 
 ReactDOM.render(
   <Provider store={store}>

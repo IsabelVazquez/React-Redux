@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
 import { fetchImages } from '../actions/imgur';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-export default class Search extends Component {
+class Search extends Component {
   handleSelect = (eventKey) => {
-    fetchImages(eventKey);
+    this.props.fetchImages(eventKey);
   }
 
   render() {
@@ -29,3 +31,9 @@ export default class Search extends Component {
     )
   }
 }
+
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({fetchImages: fetchImages}, dispatch);
+}
+
+export default connect(null, matchDispatchToProps)(Search);

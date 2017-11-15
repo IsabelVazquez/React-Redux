@@ -11,7 +11,7 @@ export function fetchImages(section) {
     .then((response) => response.json())
     .then(json => dispatch({
       type: 'FETCH_IMAGES',
-      payload: json.data.items,
+      payload: json.data,
     }))
     .catch(error => {
       throw(error);

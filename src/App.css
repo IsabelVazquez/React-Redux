@@ -7,3 +7,13 @@
   height: 180px;
   line-height: 0;
 }
+
+.navbar-fixed-bottom {
+  /*position: absolute;*/
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 40px;
+  line-height: 40px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
