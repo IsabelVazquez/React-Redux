@@ -6,7 +6,6 @@ import Search from './Search';
 export default class Header extends Component {
   render() {
     return(
-      <main>
       <Navbar>
         <Navbar.Brand>
           Photo Viewing App
@@ -18,7 +17,6 @@ export default class Header extends Component {
           <Search />
         </Nav>
       </Navbar>
-      </main>
     )
   }
 }
