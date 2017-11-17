@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { ControlLabel, FormControl, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import FormErrors from '../components/FormErrors';
-//TBD: new action for handling API to users
-import { fetchImages } from '../actions/imgur';
+import { loginUser } from '../actions/user';
 
 class SignIn extends Component {
   constructor(props) {
@@ -57,30 +56,36 @@ class SignIn extends Component {
     return(error.length === 0 ? '' : 'has-error');
   }
 
+  onSubmit = (ev) => {
+    ev.preventDefault();
+    this.props.loginUser(this.state);
+  }
+
   render() {
     return (
-      <form class="user-form" onChange={(event) => this.handleUserInput(event)}>
+      <form class="user-form" onChange={ (event) => this.handleUserInput(event) }>
         <h1>Sign In</h1>
         <div className="panel panel-default">
-          <FormErrors formErrors={this.state.formErrors} />
+          <FormErrors formErrors={ this.state.formErrors } />
         </div>
         <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
           <label htmlFor="email">Email</label>
           <input type="email" required className="form-control" name="email"
             placeholder="Email"
-            value={this.state.email}
-            onChange={this.handleUserInput}  />
+            value={ this.state.email }
+            onChange={ this.handleUserInput }  />
         </div>
         <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
           <label htmlFor="password">Password</label>
           <input type="password" className="form-control" name="password"
             placeholder="Password"
-            value={this.state.password}
-            onChange={this.handleUserInput}  />
+            value={ this.state.password }
+            onChange={ this.handleUserInput }  />
         </div>
         <Button
           type="submit"
-          disabled={!this.state.formValid}>
+          disabled={ !this.state.formValid }
+          onClick={(ev) => this.onSubmit(ev)}>
           Sign In
         </Button>
       </form>
@@ -88,4 +93,12 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+const mapStateToProps = (state) => {
+  return { user: state.user }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({loginUser: loginUser}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

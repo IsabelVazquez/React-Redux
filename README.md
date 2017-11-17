@@ -1,6 +1,8 @@
 # React-Redux Project
 This is currently a work in progress. Run `npm install` followed by `npm start` to run locally.
 
+Back-end API: https://github.com/IsabelVazquez/React-Redux-API
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ## Contributing

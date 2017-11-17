@@ -66,8 +66,6 @@ class SignUp extends Component {
 
   onSubmit = (ev) => {
     ev.preventDefault();
-    // this.state is below
-    //{"name":"hello","email":"hello@hello.com","password":"INPLAINTEXT!!!","formErrors":{"name":"","email":"","password":""},"nameValid":true,"emailValid":["hello@hello.com","hello","hello.","com"],"passwordValid":true,"formValid":true}
     this.props.signUpUser(this.state);
   }
 

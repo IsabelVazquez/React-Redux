@@ -13,3 +13,17 @@ export function signUpUser(credentials) {
       })
   }
 }
+
+export function loginUser(credentials) {
+  return function(dispatch) {
+    return UserApi.signin(credentials)
+      .then(response => {
+        if(response.jwt) {
+          sessionStorage.setItem('jwt', response.jwt);
+        }
+      })
+      .catch(error => {
+        throw(error);
+      })
+  }
+}
