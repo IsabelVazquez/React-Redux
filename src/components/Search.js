@@ -38,6 +38,8 @@ function mapStateToProps(state) {
   };
 }
 
+// Get actions and pass them as props to Search
+//      > now Search has this.props.fetchImages
 function matchDispatchToProps(dispatch){
     return bindActionCreators({fetchImages: fetchImages}, dispatch);
 }

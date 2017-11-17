@@ -97,6 +97,8 @@ const mapStateToProps = (state) => {
   return { user: state.user }
 }
 
+// Get actions and pass them as props to to SignIn
+//      > now SignIn has this.props.loginUser
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({loginUser: loginUser}, dispatch)
 }

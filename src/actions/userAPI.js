@@ -15,7 +15,6 @@ class UserApi {
       .catch(error => {
         return error;
       })
-      .then(window.location.href = 'http://localhost:3000');
   }
 
   static signup(credentials) {
@@ -32,7 +31,6 @@ class UserApi {
       .catch(error => {
         return error;
       })
-      .then(window.location.href = 'http://localhost:3000');
   }
 }
 

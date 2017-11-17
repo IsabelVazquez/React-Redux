@@ -2,6 +2,7 @@
 This is currently a work in progress. Run `npm install` followed by `npm start` to run locally.
 
 Back-end API: https://github.com/IsabelVazquez/React-Redux-API
+While running this React app, start the Rails API with `rails server -p 3001`. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
