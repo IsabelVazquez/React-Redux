@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { ControlLabel, FormControl, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import FormErrors from '../components/FormErrors';
-//TBD: new action for handling API to users
-import { fetchImages } from '../actions/imgur';
+import { signUpUser } from '../actions/user';
 
 class SignUp extends Component {
   constructor(props) {
@@ -58,44 +57,52 @@ class SignUp extends Component {
   }
 
   validateForm() {
-    this.setState({formValid: this.state.emailValid && this.state.passwordValid && this.state.nameValid});
+    this.setState({ formValid: this.state.emailValid && this.state.passwordValid && this.state.nameValid });
   }
 
   errorClass(error) {
     return(error.length === 0 ? '' : 'has-error');
   }
 
+  onSubmit = (ev) => {
+    ev.preventDefault();
+    // this.state is below
+    //{"name":"hello","email":"hello@hello.com","password":"INPLAINTEXT!!!","formErrors":{"name":"","email":"","password":""},"nameValid":true,"emailValid":["hello@hello.com","hello","hello.","com"],"passwordValid":true,"formValid":true}
+    this.props.signUpUser(this.state);
+  }
+
   render() {
     return (
-      <form class="user-form" onChange={(event) => this.handleUserInput(event)}>
-        <h1>Sign In</h1>
+      <form class="user-form" onChange={ (event) => this.handleUserInput(event) }>
+        <h1>Sign Up</h1>
         <div className="panel panel-default">
-          <FormErrors formErrors={this.state.formErrors} />
+          <FormErrors formErrors={ this.state.formErrors } />
         </div>
         <div className={`form-group ${this.errorClass(this.state.formErrors.name)}`}>
           <label htmlFor="name">Name</label>
           <input type="name" required className="form-control" name="name"
             placeholder="Name"
-            value={this.state.name}
-            onChange={this.handleUserInput}  />
+            value={ this.state.name }
+            onChange={ this.handleUserInput }  />
         </div>
         <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
           <label htmlFor="email">Email</label>
           <input type="email" required className="form-control" name="email"
             placeholder="Email"
-            value={this.state.email}
-            onChange={this.handleUserInput}  />
+            value={ this.state.email }
+            onChange={ this.handleUserInput }  />
         </div>
         <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`}>
           <label htmlFor="password">Password</label>
           <input type="password" className="form-control" name="password"
             placeholder="Password"
-            value={this.state.password}
-            onChange={this.handleUserInput}  />
+            value={ this.state.password }
+            onChange={ this.handleUserInput }  />
         </div>
         <Button
           type="submit"
-          disabled={!this.state.formValid}>
+          disabled={!this.state.formValid}
+          onClick={(ev) => this.onSubmit(ev)}>
           Sign Up
         </Button>
       </form>
@@ -103,4 +110,12 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+const mapStateToProps = (state) => {
+  return { user: state.user }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({signUpUser: signUpUser}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
