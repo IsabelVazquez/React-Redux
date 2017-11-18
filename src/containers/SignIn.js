@@ -59,7 +59,7 @@ class SignIn extends Component {
 
   onSubmit = (ev) => {
     ev.preventDefault();
-    this.props.loginUser(this.state);
+    this.props.loginUser(this.state, this.props.history, "/");
   }
 
   render() {

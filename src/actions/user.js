@@ -1,6 +1,6 @@
 import UserApi from './userAPI';
 
-export function signUpUser(credentials) {
+export function signUpUser(credentials, history, redirect) {
   return function(dispatch) {
     return UserApi.signup(credentials)
       .then(response => {
@@ -23,13 +23,14 @@ export function signUpUser(credentials) {
           })
         }
       })
+      .then(() => history.push(redirect))
       .catch(error => {
         throw(error);
       })
   }
 }
 
-export function loginUser(credentials) {
+export function loginUser(credentials, history, redirect) {
   return function(dispatch) {
     return UserApi.signin(credentials)
       .then(response => {
@@ -52,6 +53,7 @@ export function loginUser(credentials) {
           })
         }
       })
+      .then(() => history.push(redirect))
       .catch(error => {
         throw(error);
       })
