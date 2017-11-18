@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import Search from './Search';
 
@@ -15,7 +16,7 @@ export default class Header extends Component {
     return(
       <Navbar>
         <Navbar.Brand>
-          Photo Viewing App
+          <Link to="/">Photo Viewing App</Link>
         </Navbar.Brand>
         <Nav pullRight>
           {navButtons}
