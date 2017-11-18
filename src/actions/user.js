@@ -5,7 +5,10 @@ export function signUpUser(credentials) {
     return UserApi.signup(credentials)
       .then(response => {
         if(response.jwt) {
-          localStorage.setItem('jwt', response.jwt);
+          localStorage.setItem("jwt", response.jwt);
+          localStorage.setItem("user", JSON.stringify({
+            id: response.id, email: response.email, name: response.name,
+          }));
           dispatch({
             type: 'SUCCESS',
             // response = {jwt: KEY, id: INT, email: STR, name: STR}
@@ -31,7 +34,10 @@ export function loginUser(credentials) {
     return UserApi.signin(credentials)
       .then(response => {
         if(response.jwt) {
-          localStorage.setItem('jwt', response.jwt);
+          localStorage.setItem("jwt", response.jwt);
+          localStorage.setItem("user", JSON.stringify({
+            id: response.id, email: response.email, name: response.name,
+          }));
           dispatch({
             type: 'SUCCESS',
             // response = {jwt: KEY, id: INT, email: STR, name: STR}
@@ -53,5 +59,9 @@ export function loginUser(credentials) {
 }
 
 export function signOutUser() {
-  localStorage.removeItem('jwt');
+  localStorage.removeItem("jwt");
+  localStorage.removeItem("user");
+  return(dispatch) => {
+    dispatch({ type: 'SIGN_OUT' });
+  }
 }

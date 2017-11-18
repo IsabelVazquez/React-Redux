@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import FormErrors from '../components/FormErrors';
 import { signUpUser } from '../actions/user';
 
@@ -116,4 +117,6 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({signUpUser: signUpUser}, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(SignUp)
+);

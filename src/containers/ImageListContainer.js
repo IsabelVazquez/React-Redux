@@ -11,8 +11,14 @@ class ImageListContainer extends Component {
       const children = this.props.images.images.items.map((image) => (
         <Image key={image.id} image={image} />
       ));
+      var obj = JSON.parse(localStorage.getItem('user'));
+      var welcome;
+      if (obj && obj.hasOwnProperty('name')) {
+        welcome = <h1>Welcome, {obj.name}</h1>
+      }
       return (
         <div>
+          {welcome}
           <h1>{this.props.images.images.display_name}</h1>
           <ImageList>
             {children}

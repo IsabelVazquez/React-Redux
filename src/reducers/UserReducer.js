@@ -1,4 +1,4 @@
-function UserReducer(state = {session: !!localStorage.jwt,
+function UserReducer(state = {session: false,
   user: null,
   error: ""
 }, action) {
@@ -14,6 +14,8 @@ function UserReducer(state = {session: !!localStorage.jwt,
           }
       case 'FAILURE':
         return {...state, error: action.payload}
+      case 'SIGN_OUT':
+        return {...state, session: !!localStorage.jwt, user: {}}
       default:
         return state;
     }
