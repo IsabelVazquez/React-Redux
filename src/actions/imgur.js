@@ -1,5 +1,5 @@
 const apiURL = "https://api.imgur.com/3/gallery/t/";
-const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_ID = "d2191d869f130f4";
 
 export function fetchImages(section) {
   return (dispatch) => {
