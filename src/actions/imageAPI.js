@@ -2,7 +2,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 class ImageApi {
   static createImage(credentials) {
-    const request = new Request(API_URL+'image', {
+    const request = new Request(API_URL+'like', {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json'

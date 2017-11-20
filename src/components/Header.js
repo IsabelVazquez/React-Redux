@@ -9,9 +9,17 @@ export default class Header extends Component {
     var obj = JSON.parse(localStorage.getItem('user'));
     var navButtons;
     if (obj && obj.hasOwnProperty('name')) {
-      navButtons = <div><Button href="/signout">Sign Out</Button><Search /></div>
+      navButtons = <div>
+        <Button href="/profile">User Profile</Button>
+        <Button href="/signout">Sign Out</Button>
+        <Search />
+      </div>
     } else {
-      navButtons = <div><Button href="/signup">Sign Up</Button><Button href="/signin">Sign In</Button><Search /></div>
+      navButtons = <div>
+        <Button href="/signup">Sign Up</Button>
+        <Button href="/signin">Sign In</Button>
+        <Search />
+      </div>
     }
     return(
       <Navbar>

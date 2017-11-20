@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import Image from '../components/Image';
 import ImageList from '../components/ImageList';
 
@@ -41,9 +42,10 @@ class ImageListContainer extends Component {
 //      > whenever state changes, the ImageListContainer will automatically re-render
 const mapStateToProps = (state) => {
   return {
-    images: state.images,
-    user: state.user,
+    images: state.images
   };
 }
 
-export default connect(mapStateToProps, null)(ImageListContainer);
+export default withRouter(
+  connect(mapStateToProps, null)(ImageListContainer)
+);
