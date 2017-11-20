@@ -16,6 +16,21 @@ class ImageApi {
         return error;
       })
   }
+
+  static getImages(credentials) {
+    const request = new Request(API_URL+'images', {
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      }),
+      body: JSON.stringify({image: credentials})
+    });
+    return fetch(request)
+      .then(response => response.json())
+      .catch(error => {
+        return error;
+      })
+  }
 }
 
 export default ImageApi;

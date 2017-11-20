@@ -12,7 +12,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 const store = createStore(allReducers, applyMiddleware(thunk));
 // console window.store.getState() - to be removed
-// window.store = store;
+window.store = store;
 
 ReactDOM.render(
   <Provider store={store}>

@@ -6,7 +6,6 @@ import ImageList from '../components/ImageList';
 
 class ImageListContainer extends Component {
   renderList() {
-    // this.props.user = {"session":true,"user":{},"error":""}
     // must wrap .map block with conditional statement
     if (this.props.images.images.items) {
       const children = this.props.images.images.items.map((image) => (

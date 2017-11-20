@@ -1,13 +1,30 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
-import ImageList from '../components/ImageList';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { fetchUserImages } from '../actions/image';
 
 class UserImageListContainer extends Component {
+  componentWillMount() {
+    this.props.fetchUserImages({
+      user_id: JSON.parse(localStorage.getItem('user')).id
+    });
+  }
+
+  renderList() {
+    return (
+      <div>
+        {this.props.images.user_images}
+      </div>
+    );
+  }
+
   render() {
     return (
       <div>
         <h1>Favorites</h1>
+        {this.renderList()}
       </div>
     )
   }
@@ -17,10 +34,17 @@ class UserImageListContainer extends Component {
 //      > whenever state changes, the UserImageListContainer will automatically re-render
 const mapStateToProps = (state) => {
   return {
-    images: state.images
+    images: state.images,
+    user_images: state.user_images
   }
 }
 
+// Get actions and pass them as props to UserImageListContainer
+//      > now UserImageListContainer has this.props.fetchUserImages
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({fetchUserImages: fetchUserImages}, dispatch);
+}
+
 export default withRouter(
-  connect(mapStateToProps, null)(UserImageListContainer)
+  connect(mapStateToProps, matchDispatchToProps)(UserImageListContainer)
 );
