@@ -10,8 +10,8 @@ function ImageReducer(state = {images: [], saved_image: null, user_images: null,
       return {...state, user_images: action.payload.user_images}
     case 'FAILURE_USER_IMAGES_ID':
       return {...state, errors: action.payload.errors}
-      case 'FAILURE_USER_IMAGE':
-        return {...state, user_images: action.payload}
+    case 'FETCH_USER_IMAGE':
+      return {...state, images: action.payload}
     default:
       return state;
   }

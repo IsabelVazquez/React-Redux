@@ -8,11 +8,11 @@ const Image = (props) => {
   if (obj && obj.hasOwnProperty('name')) {
     likeButton = <Button id={props.image.id} class="favorite" bsSize="xsmall" onClick={handleClick}><span class="glyphicon glyphicon-heart"></span></Button>
   }
-  
+
   function handleClick(ev) {
     ev.preventDefault();
     likeImage({
-      imgur_id: props.image.id,
+      imgur_id: props.image.cover,
       user_id: obj.id
     });
   }

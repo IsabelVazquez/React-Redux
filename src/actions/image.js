@@ -8,6 +8,7 @@ export function fetchUserImages(credentials) {
   return function(dispatch) {
     return ImageApi.getImages(credentials)
       .then(response => {
+        console.log(response);
         // response = {"user_images": ["HEL23h", "KLAp34", "AwOL2"]}
         if(response.user_images) {
           dispatch({
