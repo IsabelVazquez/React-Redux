@@ -9,6 +9,7 @@ export function signUpUser(credentials, history, redirect) {
           localStorage.setItem("user", JSON.stringify({
             id: response.id, email: response.email, name: response.name,
           }));
+          history.push(redirect)
           dispatch({
             type: 'SUCCESS',
             // response = {jwt: KEY, id: INT, email: STR, name: STR}
@@ -19,11 +20,11 @@ export function signUpUser(credentials, history, redirect) {
           dispatch({
             type: 'FAILURE',
             // response = {"error":"Email has already been taken"}
-            payload: response,
+            payload: response.error,
+            //this.props.user.error
           })
         }
       })
-      .then(() => history.push(redirect))
       .catch(error => {
         throw(error);
       })
@@ -39,6 +40,7 @@ export function loginUser(credentials, history, redirect) {
           localStorage.setItem("user", JSON.stringify({
             id: response.id, email: response.email, name: response.name,
           }));
+          history.push(redirect)
           dispatch({
             type: 'SUCCESS',
             // response = {jwt: KEY, id: INT, email: STR, name: STR}
@@ -48,12 +50,12 @@ export function loginUser(credentials, history, redirect) {
         else {
           dispatch({
             type: 'FAILURE',
-            //response = {"errors":"Invalid username or password"}
-            payload: response,
+            //response = {"error":"Invalid username or password"}
+            payload: response.errors,
+            //this.props.user.error
           })
         }
       })
-      .then(() => history.push(redirect))
       .catch(error => {
         throw(error);
       })

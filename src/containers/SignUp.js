@@ -26,6 +26,7 @@ class SignUp extends Component {
     const value = e.target.value;
     this.setState({[name]: value},
                 () => { this.validateField(name, value) });
+    this.props.user.error = ""
   }
 
   validateField(fieldName, value) {
@@ -50,6 +51,7 @@ class SignUp extends Component {
       default:
         break;
     }
+
     this.setState({formErrors: fieldValidationErrors,
                     emailValid: emailValid,
                     passwordValid: passwordValid,
@@ -67,7 +69,7 @@ class SignUp extends Component {
 
   onSubmit = (ev) => {
     ev.preventDefault();
-    this.props.signUpUser(this.state, this.props.history, "/signin");
+    this.props.signUpUser(this.state, this.props.history, "/");
   }
 
   render() {
@@ -76,6 +78,7 @@ class SignUp extends Component {
         <h1>Sign Up</h1>
         <div className="panel panel-default">
           <FormErrors formErrors={ this.state.formErrors } />
+          <p>{ this.props.user.error }</p>
         </div>
         <div className={`form-group ${this.errorClass(this.state.formErrors.name)}`}>
           <label htmlFor="name">Name</label>

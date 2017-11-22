@@ -24,6 +24,7 @@ class SignIn extends Component {
     const value = e.target.value;
     this.setState({[name]: value},
                 () => { this.validateField(name, value) });
+    this.props.user.error = ""
   }
 
   validateField(fieldName, value) {
@@ -68,6 +69,7 @@ class SignIn extends Component {
         <h1>Sign In</h1>
         <div className="panel panel-default">
           <FormErrors formErrors={ this.state.formErrors } />
+          <p>{ this.props.user.error }</p>
         </div>
         <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`}>
           <label htmlFor="email">Email</label>
