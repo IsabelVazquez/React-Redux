@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Col } from 'react-bootstrap';
 
 import { fetchUserImages } from '../actions/image';
 import ImageList from '../components/ImageList';
+import Image from '../components/Image';
 
 class UserImageListContainer extends Component {
   componentWillMount() {
@@ -17,13 +17,7 @@ class UserImageListContainer extends Component {
   renderList() {
     if (this.props.images.user_images) {
       const children = this.props.images.user_images.map((user_image) => (
-        <Col md={2}>
-          <div class="post">
-            <a class="image-list-link" title={user_image.data.title} href={user_image.data.link} target="_blank" rel="noopener noreferrer">
-              <img alt={"Click to view"} src={'http://imgur.com/' + user_image.data.id + 't' + '.jpg'} />
-            </a>
-          </div>
-        </Col>
+        <Image key={user_image.id} image={user_image} />
       ));
       return (
         <ImageList>

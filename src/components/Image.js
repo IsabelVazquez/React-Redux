@@ -6,7 +6,7 @@ const Image = (props) => {
   var obj = JSON.parse(localStorage.getItem('user'));
   var likeButton;
   if (obj && obj.hasOwnProperty('name')) {
-    likeButton = <Button id={props.image.id} class="favorite" bsSize="xsmall" onClick={handleClick}><span class="glyphicon glyphicon-heart"></span></Button>
+    likeButton = <Button id={props.image.id} class="favorite" bsSize="small" onClick={handleClick}><span class="glyphicon glyphicon-heart"></span></Button>
   }
 
   function handleClick(ev) {
