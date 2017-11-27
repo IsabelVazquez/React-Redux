@@ -30,7 +30,7 @@ class UserImageListContainer extends Component {
   render() {
     return (
       <div>
-        <h1>Favorites</h1>
+        <h1>{JSON.parse(localStorage.getItem('user')).name}'s Favorites</h1>
         {this.renderList()}
       </div>
     )

@@ -1,9 +1,10 @@
+// https://react-bootstrap.github.io/components.html ToggleButton
 import React from 'react';
 import { Col, Button } from 'react-bootstrap';
 import { likeImage } from '../actions/image';
 
 const Image = (props) => {
-  var obj = JSON.parse(localStorage.getItem('user'));
+  const obj = JSON.parse(localStorage.getItem('user'));
   var likeButton;
   if (obj && obj.hasOwnProperty('name')) {
     likeButton = <Button id={props.image.id} class="favorite" bsSize="small" onClick={handleClick}><span class="glyphicon glyphicon-heart"></span></Button>

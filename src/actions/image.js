@@ -1,7 +1,10 @@
 import ImageApi from './imageAPI';
 
 export function likeImage(credentials) {
-  return ImageApi.createImage(credentials)
+  ImageApi.createImage(credentials);
+  return(dispatch) => {
+    dispatch({ type: 'POST_IMAGE' });
+  }
 }
 
 export function fetchUserImages(credentials) {

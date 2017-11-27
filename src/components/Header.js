@@ -6,7 +6,7 @@ import Search from './Search';
 
 export default class Header extends Component {
   render() {
-    var obj = JSON.parse(localStorage.getItem('user'));
+    const obj = JSON.parse(localStorage.getItem('user'));
     var navButtons;
     if (obj && obj.hasOwnProperty('name')) {
       navButtons = <div>
