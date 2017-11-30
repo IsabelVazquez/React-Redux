@@ -10,14 +10,14 @@ export default class Header extends Component {
     var navButtons;
     if (obj && obj.hasOwnProperty('name')) {
       navButtons = <div>
-        <Button href="/profile">User Profile</Button>
-        <Button href="/signout">Sign Out</Button>
+        <Link to="/profile"><Button>User Profile</Button></Link>
+        <Link to="/signout"><Button>Sign Out</Button></Link>
         <Search />
       </div>
     } else {
       navButtons = <div>
-        <Button href="/signup">Sign Up</Button>
-        <Button href="/signin">Sign In</Button>
+        <Link to="/signup"><Button>Sign Up</Button></Link>
+        <Link to="/signin"><Button>Sign In</Button></Link>
         <Search />
       </div>
     }

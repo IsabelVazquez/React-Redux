@@ -33,12 +33,11 @@ class ImageApi {
   }
 
   static getGalleries(credentials) {
-    const request = new Request(API_URL+'galleries', {
-      method: 'POST',
+    const request = new Request(API_URL+`galleries?section=${credentials.section}`, {
+      method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json'
       }),
-      body: JSON.stringify({gallery: credentials})
     });
     return fetch(request)
       .then(response => response.json())

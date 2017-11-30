@@ -2,6 +2,7 @@
 import React from 'react';
 import { Col, Button } from 'react-bootstrap';
 import { likeImage } from '../actions/image';
+import VoteButton from './VoteButton';
 
 const Image = (props) => {
   const obj = JSON.parse(localStorage.getItem('user'));
@@ -26,6 +27,7 @@ const Image = (props) => {
           <img alt={"Click to view"} src={'http://imgur.com/' + props.image.cover + 't' + '.jpg'} />
         </a>
       </div>
+      <VoteButton />
     </Col>
   )
 }
