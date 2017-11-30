@@ -45,6 +45,21 @@ class ImageApi {
         return error;
       })
   }
+
+  static upvote(credentials) {
+    const request = new Request(API_URL+'votes', {
+      method: 'POST',
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      }),
+      body: JSON.stringify({image: credentials})
+    });
+    return fetch(request)
+      .then(response => response.json())
+      .catch(error => {
+        return error;
+      })
+  }
 }
 
 export default ImageApi;

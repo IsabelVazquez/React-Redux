@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { upvoteImage } from '../actions/image';
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-export default class VoteButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      counter: 0,
-    }
-  }
-
+class VoteButton extends Component {
   handleClick = () => {
-    this.setState({
-      counter: this.state.counter + 1,
-    })
+    this.props.upvoteImage({
+      imgur_id: this.props.imgur,
+    });
   }
 
   callApi = () => {
@@ -45,9 +41,15 @@ export default class VoteButton extends Component {
   render() {
     return (
       <div>
-        <Button onClick={(ev) => this.handleClick(ev)}>{this.state.counter}</Button>
-        <Button onClick={this.callApi}>Call Api</Button>
+        <Button onClick={ this.handleClick }>{ this.props.upvote }</Button>
+        <Button onClick={ this.callApi }>Call Api</Button>
       </div>
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({upvoteImage: upvoteImage}, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(VoteButton);
