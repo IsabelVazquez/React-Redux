@@ -6,7 +6,7 @@ import VoteButton from './VoteButton';
 const Image = (props) => {
   const obj = JSON.parse(localStorage.getItem('user'));
   var likeButton, voteButton;
-  if (obj && obj.hasOwnProperty('name')) {
+  if (obj && obj.hasOwnProperty('name') && !window.location.pathname.includes('profile')) {
     likeButton = <Button class="favorite" bsSize="small" onClick={handleClick}><span class="glyphicon glyphicon-heart"></span></Button>
   }
   if (window.location.pathname.includes('profile')) {
@@ -26,7 +26,7 @@ const Image = (props) => {
       <div class="post">
         {likeButton}
         <a class="image-list-link" title={props.image.title} href={props.image.link} target="_blank" rel="noopener noreferrer">
-          <img alt={"Click to view"} src={'http://imgur.com/' + props.image.cover + 't' + '.jpg'} />
+          <img src={'http://imgur.com/' + props.image.cover + 't' + '.jpg'} />
         </a>
       </div>
       {voteButton}
