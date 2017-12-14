@@ -11,7 +11,7 @@ export function upvoteImage(credentials) {
   return function(dispatch) {
     return ImageApi.upvote(credentials)
       .then(response => {
-        if(response.votes) {
+        if(response.updatedInfo) {
           dispatch({
             type: 'VOTE_IMAGE',
             //{imgur_id: STR, votes: INT}

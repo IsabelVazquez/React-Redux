@@ -16,7 +16,9 @@ class UserImageListContainer extends Component {
 
   renderList() {
     if (this.props.images.user_images) {
-      const children = this.props.images.user_images.map((user_image) => (
+      const children = this.props.images.user_images
+      .sort((a,b) => b.upvotes - a.upvotes)
+      .map((user_image) => (
         <Image key={user_image.id} image={user_image} />
       ));
       return (
