@@ -1,4 +1,4 @@
-function ImageReducer(state = {images: [], saved_image: null, user_images: null, errors: null}, action) {
+function imageReducer(state = {images: [], saved_image: null, user_images: null, errors: null}, action) {
   switch(action.type) {
     case 'FETCH_IMAGES':
       return {...state, images: action.payload};
@@ -20,4 +20,4 @@ function ImageReducer(state = {images: [], saved_image: null, user_images: null,
   }
 }
 
-export default ImageReducer;
+export default imageReducer;
