@@ -10,7 +10,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-const store = createStore(allReducers, applyMiddleware(thunk));
+const store = createStore(combineReducers, applyMiddleware(thunk));
 // console window.store.getState() - to be removed
 window.store = store;
 
