@@ -3,6 +3,6 @@ import imageReducer from './imageReducer';
 import UserReducer from './UserReducer';
 
 export default combineReducers({
- images: ImageReducer,
+ images: imageReducer,
  user: UserReducer,
 });
