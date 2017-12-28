@@ -26,7 +26,7 @@ const Image = (props) => {
       <div class="post">
         {likeButton}
         <a class="image-list-link" title={props.image.title} href={props.image.link} target="_blank" rel="noopener noreferrer">
-          <img src={'http://imgur.com/' + props.image.cover + 't' + '.jpg'} />
+          <img alt="Click to view" src={'http://imgur.com/' + props.image.cover + 't' + '.jpg'} />
         </a>
       </div>
       {voteButton}

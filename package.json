@@ -20,6 +20,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://imgurreact.herokuapp.com/",
   "engines": {
     "node": "6.11.2",
     "npm": "3.10.x"
