@@ -1,4 +1,4 @@
-const API_URL = "http://imgurapi1.herokuapp.com/api/v1/";
+const API_URL = "https://imgurapi1.herokuapp.com/api/v1/";
 
 class ImageApi {
   static createImage(credentials) {
