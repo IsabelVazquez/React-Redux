@@ -7,7 +7,7 @@ const Image = (props) => {
   const obj = JSON.parse(localStorage.getItem('user'));
   var likeButton, voteButton;
   if (obj && obj.hasOwnProperty('name') && !window.location.pathname.includes('profile')) {
-    likeButton = <Button class="favorite" bsSize="small" onClick={handleClick}><span class="glyphicon glyphicon-heart"></span></Button>
+    likeButton = <Button class="favorite" bsSize="small" onClick={handleClick}>Vote</Button>
   }
   if (window.location.pathname.includes('profile')) {
     voteButton = <VoteButton imgur={ props.image.cover } upvote={ props.image.upvotes }/>

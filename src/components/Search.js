@@ -16,7 +16,7 @@ class Search extends Component {
   render() {
     return(
       <Link to="/">
-        <DropdownButton title={this.props.images.images.display_name} id="bg-nested-dropdown" onSelect={ this.handleSelect }>
+        <DropdownButton title="Galleries" id="bg-nested-dropdown" onSelect={ this.handleSelect }>
           <MenuItem eventKey="Viral">Viral</MenuItem>
           <MenuItem eventKey="The_More_You_Know">The More You Know</MenuItem>
           <MenuItem eventKey="Science_and_Tech">Science and Tech</MenuItem>
