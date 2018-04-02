@@ -42,10 +42,6 @@ footer {
   align-items: center;
 }
 
-.dropdown-menu {
-  display: block;
-}
-
 @media only screen and (max-width: 1126px) {
   .col-md-2 {
     width: 25%;
