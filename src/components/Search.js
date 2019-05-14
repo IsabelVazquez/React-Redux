@@ -7,16 +7,23 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: 'Galleries',
+    }
+  }
   handleSelect = (eventKey) => {
     this.props.fetchGalleries({
       section: eventKey
     });
+    this.setState({ title : eventKey})
   }
 
   render() {
     return(
       <Link to="/">
-        <DropdownButton title="Galleries" id="bg-nested-dropdown" onSelect={ this.handleSelect }>
+        <DropdownButton title={this.state.title} id="bg-nested-dropdown" onSelect={ this.handleSelect }>
           <MenuItem eventKey="Viral">Viral</MenuItem>
           <MenuItem eventKey="The_More_You_Know">The More You Know</MenuItem>
           <MenuItem eventKey="Science_and_Tech">Science and Tech</MenuItem>
