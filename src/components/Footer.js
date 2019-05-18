@@ -4,8 +4,8 @@ export default class Footer extends Component {
   render() {
     return(
       <footer>
-          2017 Isabel Vazquez |
-          <a href="http://isabelcoder.com" target="_blank" rel="noopener noreferrer"> isabelcoder.com</a>
+          2019 Isabel Vazquez |
+          <a href="https://isabelvazquez.github.io/" target="_blank" rel="noopener noreferrer"> Personal Site</a>
 			</footer>
     )
   }
